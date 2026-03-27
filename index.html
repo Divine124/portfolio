@@ -1,89 +1,228 @@
-<!-- ONLY showing changed sections for clarity -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujal Sharma | Full Stack Developer | GenAI</title>
 
-<title>Sujal Sharma | Full Stack Developer | Java | Spring Boot | GenAI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<p class="tagline">
-  Full Stack Developer | Spring Boot | Microservices | GenAI
-</p>
+  <style>
+    :root {
+      --bg: #050508;
+      --surface: rgba(255, 255, 255, 0.05);
+      --surface-hover: rgba(255, 255, 255, 0.08);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent: #22d3ee;
+      --accent2: #a78bfa;
+      --border: rgba(255,255,255,0.08);
+    }
 
-<!-- ABOUT -->
-<p class="summary">
-  Full Stack Developer skilled in building scalable microservices and distributed systems using Java (Spring Boot), Python, and React.js. 
-  Experienced in REST APIs, system design, JWT authentication, RBAC, and database optimization. 
-  Built high-performance systems supporting 20,000+ concurrent users. 
-  Passionate about Generative AI, LLM-based applications, and intelligent backend systems.
-</p>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 20% 20%, #0f172a, transparent 40%),
+                  radial-gradient(circle at 80% 0%, #1e1b4b, transparent 40%),
+                  #050508;
+      animation: bgMove 10s infinite alternate;
+    }
 
-<!-- SKILLS -->
-<div class="skill-group">
-  <h3>Languages</h3>
-  <p>Java, Python, SQL, JavaScript</p>
-</div>
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
 
-<div class="skill-group">
-  <h3>Frontend</h3>
-  <p>React.js, HTML, CSS</p>
-</div>
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      background: rgba(5,5,8,0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
 
-<div class="skill-group">
-  <h3>Databases</h3>
-  <p>MongoDB, MySQL, Redis</p>
-</div>
+    nav a {
+      margin: 0 1rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
 
-<div class="skill-group">
-  <h3>Cloud & DevOps</h3>
-  <p>AWS (EC2, S3), Docker, CI/CD</p>
-</div>
+    nav a:hover {
+      color: var(--accent);
+    }
 
-<div class="skill-group">
-  <h3>Messaging</h3>
-  <p>Apache Kafka</p>
-</div>
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
 
-<div class="skill-group">
-  <h3>AI / GenAI</h3>
-  <p>LLMs, Prompt Engineering, OpenAI API, RAG Pipelines</p>
-</div>
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-<!-- EXPERIENCE -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Full Stack Developer Intern</h3>
-    <span class="card-meta">Aug 2025 – March 2026</span>
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg,#fff,#22d3ee,#a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #22d3ee); }
+      to { filter: drop-shadow(0 0 20px #a78bfa); }
+    }
+
+    .tagline {
+      color: var(--accent);
+    }
+
+    .card, .skill-group {
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: 0.3s;
+    }
+
+    .card:hover, .skill-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(34,211,238,0.2);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      gap: 1rem;
+    }
+
+    .skill-group p {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-group span {
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.2);
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      color: black;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Sujal Sharma</h1>
+  <p class="tagline">Full Stack Developer | Spring Boot | GenAI</p>
+  <a href="#contact" class="btn btn-primary">Contact Me</a>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>
+    Full Stack Developer experienced in building scalable microservices using Java, Spring Boot, Python, and React.
+    Worked on systems supporting 20,000+ users. Passionate about GenAI, LLMs, and backend architecture.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <p><span>Java</span><span>Python</span><span>SQL</span><span>JavaScript</span></p>
+    </div>
+
+    <div class="skill-group">
+      <h3>Backend</h3>
+      <p><span>Spring Boot</span><span>Microservices</span><span>REST APIs</span></p>
+    </div>
+
+    <div class="skill-group">
+      <h3>Frontend</h3>
+      <p><span>React</span><span>HTML</span><span>CSS</span></p>
+    </div>
+
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <p><span>MongoDB</span><span>MySQL</span><span>Redis</span></p>
+    </div>
+
+    <div class="skill-group">
+      <h3>Cloud</h3>
+      <p><span>AWS</span><span>Docker</span><span>CI/CD</span></p>
+    </div>
+
+    <div class="skill-group">
+      <h3>AI / GenAI</h3>
+      <p><span>LLMs</span><span>RAG</span><span>OpenAI API</span></p>
+    </div>
+
   </div>
-  <p class="card-meta">Uniifinds</p>
-  <ul>
-    <li>Built scalable microservices handling 20,000+ concurrent users.</li>
-    <li>Improved API performance by 30% using query optimization and indexing.</li>
-    <li>Implemented Redis caching and Kafka-based async processing.</li>
-    <li>Designed secure REST APIs with JWT authentication and RBAC.</li>
-    <li>Developed React.js frontend integrated with backend services.</li>
-    <li>Deployed applications on AWS EC2 with Docker and CI/CD pipelines.</li>
-    <li>Built Python-based automation and data processing modules.</li>
-  </ul>
-</div>
+</section>
 
-<!-- PROJECTS -->
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">AI-Powered Fitness Application</h3>
-  </div>
-  <ul>
-    <li>Designed microservices architecture with API Gateway, User, Activity, and AI services.</li>
-    <li>Implemented JWT-based authentication and inter-service communication.</li>
-    <li>Built React frontend for dynamic interaction.</li>
-    <li>Integrated AI-based recommendation system using LLM concepts.</li>
-  </ul>
-</div>
+<section id="projects">
+  <h2>Projects</h2>
 
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">AI Resume Analyzer (GenAI)</h3>
+  <div class="card">
+    <h3>AI Fitness App</h3>
+    <p>Microservices-based fitness app with AI recommendations.</p>
   </div>
-  <ul>
-    <li>Built a GenAI system to analyze resumes and generate ATS scores.</li>
-    <li>Implemented LLM-based parsing, keyword extraction, and scoring.</li>
-    <li>Designed scalable Spring Boot APIs for processing resumes.</li>
-    <li>Improved evaluation accuracy using intelligent content analysis.</li>
-  </ul>
-</div>
+
+  <div class="card">
+    <h3>AI Resume Analyzer</h3>
+    <p>GenAI system that analyzes resumes and generates ATS scores.</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: sujal124sharma@gmail.com</p>
+</section>
+
+<footer>
+  © 2026 Sujal Sharma
+</footer>
+
+</body>
+</html>
