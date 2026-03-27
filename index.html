@@ -3,446 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sujal Sharma | Backend Developer | Java | Spring Boot</title>
-  <meta name="description" content="Backend Developer with experience in Java, Spring Boot, microservices, and scalable REST APIs. Gurugram, India.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Sujal Sharma | Full Stack Developer | GenAI</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --surface-hover: #1a1a24;
-      --text: #e4e4e7;
+      --bg: #050508;
+      --surface: rgba(255, 255, 255, 0.05);
+      --surface-hover: rgba(255, 255, 255, 0.08);
+      --text: #f4f4f5;
       --text-muted: #a1a1aa;
       --accent: #22d3ee;
-      --accent-dim: rgba(34, 211, 238, 0.15);
-      --border: #27272a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
+      --accent2: #a78bfa;
+      --border: rgba(255,255,255,0.08);
     }
 
     body {
       margin: 0;
       font-family: 'Outfit', sans-serif;
-      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: radial-gradient(circle at 20% 20%, #0f172a, transparent 40%),
+                  radial-gradient(circle at 80% 0%, #1e1b4b, transparent 40%),
+                  #050508;
+      animation: bgMove 10s infinite alternate;
     }
 
-    /* Nav */
+    @keyframes bgMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(10, 10, 15, 0.85);
-      backdrop-filter: blur(12px);
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      background: rgba(5,5,8,0.6);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
     nav a {
+      margin: 0 1rem;
       color: var(--text-muted);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.2s;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
-    /* Sections */
     section {
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
       padding: 4rem 1.5rem;
     }
 
     .hero {
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding-top: 80px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+      font-size: 3rem;
+      background: linear-gradient(135deg,#fff,#22d3ee,#a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
+      animation: glow 3s infinite alternate;
     }
 
-    .hero .tagline {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #22d3ee); }
+      to { filter: drop-shadow(0 0 20px #a78bfa); }
+    }
+
+    .tagline {
       color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
     }
 
-    .hero .location {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero .cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      font-family: inherit;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--accent-dim);
-    }
-
-    .btn-outline {
+    .card, .skill-group {
+      background: var(--surface);
+      backdrop-filter: blur(14px);
       border: 1px solid var(--border);
-      color: var(--text);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: 0.3s;
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+    .card:hover, .skill-group:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(34,211,238,0.2);
     }
 
-    h2 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin: 0 0 1.5rem;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    h2::after {
-      content: '';
-      flex: 1;
-      max-width: 200px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
-    }
-
-    .summary {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-    }
-
-    /* Skills grid */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
       gap: 1rem;
-    }
-
-    .skill-group {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .skill-group:hover {
-      border-color: var(--accent);
-      background: var(--surface-hover);
-    }
-
-    .skill-group h3 {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 0 0 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     .skill-group p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Experience & Projects cards */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 1.25rem;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      background: var(--surface-hover);
-    }
-
-    .card-header {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
       gap: 0.5rem;
-      margin-bottom: 0.75rem;
     }
 
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 0;
-      color: var(--text);
+    .skill-group span {
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.2);
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
     }
 
-    .card-meta {
-      font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .card ul {
-      margin: 0;
-      padding-left: 1.25rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .card li {
-      margin-bottom: 0.35rem;
-    }
-
-    /* Education */
-    .education {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-    }
-
-    .education .card-title {
-      margin-bottom: 0.25rem;
-    }
-
-    .education .card-meta {
-      margin-bottom: 0.25rem;
-    }
-
-    /* Contact */
-    #contact {
-      padding-bottom: 5rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.6rem 1rem;
+    .btn {
+      padding: 0.7rem 1.2rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: color 0.2s, border-color 0.2s;
+      text-decoration: none;
     }
 
-    .contact-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
+    .btn-primary {
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      color: black;
     }
 
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
       color: var(--text-muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <section class="hero">
-    <h1>Sujal Sharma</h1>
-    <p class="tagline">Backend Developer | Java | Spring Boot | Microservices</p>
-    <p class="location">Gurugram, Haryana</p>
-    <div class="cta">
-      <a href="#contact" class="btn btn-primary">Get in touch</a>
-      <a href="#projects" class="btn btn-outline">View projects</a>
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Sujal Sharma</h1>
+  <p class="tagline">Full Stack Developer | Spring Boot | GenAI</p>
+  <a href="#contact" class="btn btn-primary">Contact Me</a>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p>
+    Full Stack Developer experienced in building scalable microservices using Java, Spring Boot, Python, and React.
+    Worked on systems supporting 20,000+ users. Passionate about GenAI, LLMs, and backend architecture.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <p><span>Java</span><span>Python</span><span>SQL</span><span>JavaScript</span></p>
     </div>
-  </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p class="summary">
-      Backend Developer with hands-on experience building scalable RESTful APIs and microservices using Java and Spring Boot. Strong expertise in JWT authentication, RBAC authorization, database optimization, and resolving production-level issues in startup environments. Passionate about designing secure, high-performance backend systems.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <p>Java, SQL, JavaScript</p>
-      </div>
-      <div class="skill-group">
-        <h3>Frameworks</h3>
-        <p>Spring Boot, Spring Security, Spring Data JPA, Spring Cloud</p>
-      </div>
-      <div class="skill-group">
-        <h3>Databases</h3>
-        <p>MongoDB, MySQL</p>
-      </div>
-      <div class="skill-group">
-        <h3>Architecture</h3>
-        <p>Microservices, REST APIs, MVC</p>
-      </div>
-      <div class="skill-group">
-        <h3>Security</h3>
-        <p>JWT Authentication, RBAC</p>
-      </div>
-      <div class="skill-group">
-        <h3>Tools</h3>
-        <p>Docker, Git</p>
-      </div>
-      <div class="skill-group">
-        <h3>Testing</h3>
-        <p>JUnit, Mockito</p>
-      </div>
-      <div class="skill-group">
-        <h3>Concepts</h3>
-        <p>OOP, Exception Handling, API Design, Performance Optimization</p>
-      </div>
+    <div class="skill-group">
+      <h3>Backend</h3>
+      <p><span>Spring Boot</span><span>Microservices</span><span>REST APIs</span></p>
     </div>
-  </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Backend Developer Intern</h3>
-        <span class="card-meta">Aug 2025 – Oct 2025</span>
-      </div>
-      <p class="card-meta" style="margin-bottom: 0.75rem;">Uniifinds</p>
-      <ul>
-        <li>Developed scalable backend services using Java and Spring Boot.</li>
-        <li>Implemented secure REST APIs with JWT authentication and RBAC authorization.</li>
-        <li>Optimized MongoDB queries improving backend performance by 20%.</li>
-        <li>Built CRUD-based microservices supporting production workflows.</li>
-        <li>Collaborated with frontend engineers and resolved production-level issues.</li>
-      </ul>
+    <div class="skill-group">
+      <h3>Frontend</h3>
+      <p><span>React</span><span>HTML</span><span>CSS</span></p>
     </div>
-  </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">AI-Powered Fitness Application (Microservices)</h3>
-      </div>
-      <ul>
-        <li>Designed microservices architecture including User, Activity, AI, and Gateway services.</li>
-        <li>Implemented secure authentication using Spring Security and JWT.</li>
-        <li>Integrated AI-based workout recommendation module.</li>
-      </ul>
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <p><span>MongoDB</span><span>MySQL</span><span>Redis</span></p>
     </div>
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Journal Application</h3>
-      </div>
-      <ul>
-        <li>Developed secure backend with full CRUD functionality.</li>
-        <li>Implemented structured exception handling and validation.</li>
-        <li>Designed optimized database queries for performance improvement.</li>
-      </ul>
-    </div>
-  </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="education">
-      <h3 class="card-title">B.Tech – Computer Science</h3>
-      <p class="card-meta">Chandigarh University</p>
-      <p class="card-meta">Aug 2022 – May 2026</p>
+    <div class="skill-group">
+      <h3>Cloud</h3>
+      <p><span>AWS</span><span>Docker</span><span>CI/CD</span></p>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-links">
-      <a href="mailto:sujal124sharma@gmail.com">✉️ sujal124sharma@gmail.com</a>
-      <a href="tel:+919696727858">📞 +91-9696727858</a>
-      <a href="https://github.com/Divine124" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/sujal-sharma-475737254" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="skill-group">
+      <h3>AI / GenAI</h3>
+      <p><span>LLMs</span><span>RAG</span><span>OpenAI API</span></p>
     </div>
-  </section>
 
-  <footer>
-    © 2026 Sujal Sharma. Built for Vercel.
-  </footer>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>AI Fitness App</h3>
+    <p>Microservices-based fitness app with AI recommendations.</p>
+  </div>
+
+  <div class="card">
+    <h3>AI Resume Analyzer</h3>
+    <p>GenAI system that analyzes resumes and generates ATS scores.</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: sujal124sharma@gmail.com</p>
+</section>
+
+<footer>
+  © 2026 Sujal Sharma
+</footer>
+
 </body>
 </html>
